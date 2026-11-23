@@ -263,7 +263,7 @@ class MarketversePDFGenerator:
         """Render Pandas summary statistics (mean, std, min, max, percentiles) as a styled Table."""
         df = load_and_preprocess_dataframe(csv_path)
         summary_df = get_financial_summary_stats(df).reset_index()
-        summary_df.rename(columns={"index": "Metric"}, inplace=True)
+        summary_df = summary_df.rename(columns={"index": "Metric"})
 
         # Simplify column headers for compact layout
         col_names = {
@@ -276,7 +276,7 @@ class MarketversePDFGenerator:
             "PE_Ratio": "P/E",
             "Market_Cap_Billions": "Mkt Cap ($B)"
         }
-        summary_df.rename(columns=col_names, inplace=True)
+        summary_df = summary_df.rename(columns=col_names)
 
         headers = list(summary_df.columns)
         table_data = [[Paragraph(f"<b>{h}</b>", self.styles["TableHead"]) for h in headers]]

@@ -113,7 +113,7 @@ def get_summary_table_for_report(csv_path: Optional[str] = None) -> Tuple[List[s
     """Retrieve summary statistics formatted for ReportLab PDF compilation."""
     df = load_and_preprocess_dataframe(csv_path)
     summary_df = get_financial_summary_stats(df).reset_index()
-    summary_df.rename(columns={"index": "Statistic"}, inplace=True)
+    summary_df = summary_df.rename(columns={"index": "Statistic"})
     columns = [col.replace("_", " ") for col in summary_df.columns]
     data = summary_df.values.tolist()
     return columns, data
