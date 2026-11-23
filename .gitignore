@@ -33,6 +33,7 @@ venv.bak/
 # Local Git binaries & tools
 .git_bin/
 mingit.zip
+.localappdata/
 
 # Environment secrets
 .env
