@@ -1,0 +1,325 @@
+================================================================================
+MARKETVERSE: COMPLETE PRESENTATION & WALKTHROUGH VIDEO SCRIPT
+Title: "Marketverse: Building an Autonomous Multi-Agent Market Research & PDF Generator"
+Tone: Super Simple, Highly Detailed, Friendly, Engaging, Clear
+Target Video Length: ~8 to 10 Minutes
+Target Audience: Developers, Product Managers, Investors, Data Scientists, Students
+Format: Scene-by-scene with Visual Directions, On-Screen Actions & Spoken Voiceover
+================================================================================
+
+
+[00:00 - 00:45] SCENE 1: THE HOOK & INTRODUCTION
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Dynamic motion graphic of the Marketverse logo glowing on a dark navy canvas.
+Text banner: "MARKETVERSE: Autonomous Multi-Agent Market Intelligence".
+Screen transitions to show the live web dashboard on http://localhost:3000, followed
+by a quick flash of the compiled typeset A4 PDF report.
+
+[SPEAKER / VOICEOVER]:
+"Hey everyone! Welcome to Marketverse.
+
+Have you ever had to do deep financial research on an industry? If you have, you know
+how exhausting it is. You spend hours opening fifty different browser tabs. You read
+through hundreds of pages of quarterly earnings transcripts. You copy and paste numbers
+into Excel spreadsheets, hoping you didn't accidentally mistype a decimal point. And
+then, after all that work, you still have to open Microsoft Word and spend another three
+hours trying to make the document look professional.
+
+What if you didn't have to do any of that?
+
+What if you could type one simple sentence—like 'Analyze the tech sector for Q3'—and
+an entire team of smart, autonomous artificial intelligence agents would do the searching,
+verify the math with Python, and hand you a beautiful, publication-ready PDF report in
+under fifteen seconds?
+
+That is exactly what we built. It is called Marketverse. And in this video, I am going to
+show you how it works under the hood, how the agents talk to each other, and how you can
+run it yourself."
+
+
+[00:45 - 01:30] SCENE 2: THE PROBLEM WITH TRADITIONAL AI
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Split screen comparison. On the left: a ChatGPT window showing a prompt asking for
+financial math, with a red highlight on hallucinated numbers. On the right: a messy,
+unaligned Word document with broken tables.
+
+[SPEAKER / VOICEOVER]:
+"Before we look at the code, let's understand why we needed a multi-agent system in the
+first place.
+
+Today, a lot of people try to use single AI chat prompts for financial analysis. But
+single language models have two huge flaws when it comes to serious business.
+
+First, they hallucinate numbers. A language model is designed to predict the next word
+that sounds nice; it is not a calculator. If you ask it to calculate the standard deviation
+of ten companies' profit margins in its head, it will often give you a number that sounds
+convincing, but is completely made up.
+
+Second, a single model tries to do too many things at once: searching the web, formatting
+data, doing math, and writing sentences. It gets confused, loses context, and produces
+unformatted walls of text that no CEO would ever want to read.
+
+Marketverse fixes this completely by using the concept of specialized division of labor.
+Instead of one AI doing everything poorly, we have four distinct AI personas that work
+together like a real Wall Street research desk."
+
+
+[01:30 - 02:45] SCENE 3: THE TEAM ARCHITECTURE & SUPERVISOR MANAGER
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+A clean architectural flowchart diagram appears.
+At the top: Supervisor Manager LLM (GPT-4o).
+Three arrows branch downward into three distinct agent cards:
+1. Lead Researcher (Market Research Specialist)
+2. Data Analyst (Financial Data Analyst)
+3. Content Writer (Technical Reports Writer)
+
+[SPEAKER / VOICEOVER]:
+"Let's meet the team.
+
+Marketverse is built on top of the CrewAI framework using what is called a hierarchical
+process structure—or 'Process dot hierarchical'.
+
+Think of this like a modern investment firm. At the top sits our Supervisor: the
+Manager LLM. The manager does not do manual grunt work. Its job is to oversee the mission,
+break the user's request into smaller tasks, dynamically delegate assignments to the right
+specialist, and double-check every output before giving it final approval.
+
+Beneath the manager are three specialized autonomous agents:
+
+First is our Lead Researcher, whose official title is 'Market Research Specialist'. This
+agent is our digital detective. Its only mission is to search the web, locate corporate
+earnings releases, find industry growth drivers, and scrape raw web pages.
+
+Second is our Data Analyst, titled 'Financial Data Analyst'. This agent is our mathematical
+guardian. It never searches the web and it never writes fluffy prose. Its entire job is
+to open tabular spreadsheets, clean up messy numbers, calculate exact statistical distributions
+using Pandas, and verify that all numbers are 100% consistent.
+
+Third is our Content Writer, titled 'Technical Reports Writer'. This agent is our master
+storyteller. It takes the qualitative research from the researcher and the verified math
+tables from the analyst, and weaves them together into an authoritative, institutional-grade
+market report."
+
+
+[02:45 - 04:00] SCENE 4: CUSTOM TOOLS IN ACTION (SCRAPING & PANDAS MATH)
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Code editor view (VS Code) showing `crew/tools/scraper_tool.py` and
+`crew/tools/financial_tool.py`.
+The camera zooms in on the `@tool` decorator, BeautifulSoup HTML cleaning, and the
+Pandas `df.describe().to_markdown()` function.
+
+[SPEAKER / VOICEOVER]:
+"Now, how do these agents actually interact with the real world? They use Custom Tools.
+
+In CrewAI, a tool is a Python function decorated with the at-tool decorator. We built
+two critical custom tools for Marketverse:
+
+Tool number one is our Web Scraper Tool. When the researcher needs live intelligence,
+it calls this tool. It connects directly to search APIs like Tavily and SerperDev. Once
+it gets the top search results, it uses Python's requests and BeautifulSoup libraries to
+visit those web pages in the background, rip out all the annoying ads, scripts, and
+navigation headers, and extract pure, high-density business text.
+
+Even better, we built in an automatic offline fallback mode. If your internet ever drops
+or if you don't have paid API keys, Marketverse automatically supplies high-fidelity
+curated datasets so the system never crashes!
+
+Tool number two is our Financial Data Parser. This tool uses Pandas—the world's most
+trusted data science library. When corporate metrics are fed into it, the tool automatically
+cleans up messy human formatting—it strips away dollar signs, commas, and percentage
+symbols.
+
+Then, it runs real mathematical functions: it computes the exact average, the minimum,
+the maximum, the median, and the standard deviation across all tracked metrics, and
+converts that table into clean Markdown text.
+
+Because the math happens in compiled C-code through Pandas, it is mathematically
+impossible for our agents to hallucinate the numbers!"
+
+
+[04:00 - 05:15] SCENE 5: PROGRAMMATIC PDF GENERATION WITH REPORTLAB
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Open PDF viewer showing `output/market_report.pdf`.
+The camera pans over the full-width deep navy header banner, the crisp typography,
+the styled zebra-striped data table, and zooms into the bottom right corner showing
+"Page 1 of 3", "Page 2 of 3".
+
+[SPEAKER / VOICEOVER]:
+"Once the Content Writer synthesizes the final draft, Marketverse doesn't just hand
+you a messy text file. It compiles a publication-grade, A4 PDF report using ReportLab.
+
+A lot of software projects take the easy way out by using HTML-to-PDF converters that
+often break tables across pages and cut off text. We didn't do that. We built a direct
+programmatic document pipeline using ReportLab's Platypus typography engine.
+
+Take a look at this output:
+
+At the top, we have a custom full-width corporate header banner in Deep Slate Navy and
+Royal Blue, displaying the document title, generation date, and security classification.
+
+Below that, every section is cleanly styled with explicit line leading and accent dividers.
+
+Then look at this table! This is our Pandas summary matrix rendered as a styled ReportLab
+table flowable. It features bold navy headers, soft borders, and alternating zebra rows
+so your eyes never lose their place when reading across large financial figures.
+
+And look at the footer: it says 'Page 1 of 3', 'Page 2 of 3'. We achieved this by
+subclassing ReportLab's canvas into a custom class called NumberedCanvas. It performs
+a two-pass rendering trick that saves pages in memory first, figures out the exact total
+page count, and then paints the running headers and footers onto every single page.
+It is completely bulletproof."
+
+
+[05:15 - 06:15] SCENE 6: EXECUTION BENCHMARKING (BENCHMARKS.JSON)
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+VS Code showing `benchmarks.json`.
+Highlighting the `routing_history` array, `duration_seconds` for each step, and
+the `agent_benchmarks` summary.
+
+[SPEAKER / VOICEOVER]:
+"In production engineering, you have to measure performance. You need to know how fast
+your agents are working and track how tasks are being routed.
+
+Marketverse features a built-in telemetry tracker called BenchmarkTracker. Every time a
+workflow starts, it kicks off a microsecond-precision wall-clock timer.
+
+As the Manager LLM delegates Task 1 to the Researcher, Task 2 to the Analyst, and Task 3
+to the Writer, the tracker logs:
+- The exact start and completion timestamps
+- The duration of each individual task in seconds
+- The delegating supervisor
+- And a preview of the task output.
+
+All of this telemetry is automatically saved into a local file called benchmarks.json.
+This gives engineering teams complete transparency, allowing you to audit agent behavior,
+detect latency bottlenecks, and measure token usage over time."
+
+
+[06:15 - 07:15] SCENE 7: LIVE TERMINAL DEMO (MAIN.PY & PYTEST)
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+PowerShell terminal window.
+The user runs: `python main.py --query "Tech Sector Q3 Analysis"`
+Console shows real-time colorized logs:
+[Manager LLM] Initializing workflow...
+[Manager LLM -> Lead Researcher] Dynamically delegating Task 1...
+[Manager LLM -> Data Analyst] Dynamically delegating Task 2...
+[Manager LLM -> Content Writer] Dynamically delegating Task 3...
+[Marketverse] Successfully compiled PDF: output/market_report.pdf
+Next command: `pytest -v` showing all 14 tests passing in green.
+
+[SPEAKER / VOICEOVER]:
+"Let's see it run live!
+
+To run Marketverse from the terminal, all you do is type:
+python main dot py dash dash query 'Tech Sector Q3 Analysis'
+
+Watch the console logs:
+Immediately, the Manager LLM initializes the hierarchical process. It logs the target
+query and reviews the team roster.
+
+Boom! Step 1: the manager delegates to the Lead Researcher, who runs search networks
+and scrapes web sources.
+Step 2: the manager delegates to the Data Analyst, who runs calculate_financial_metrics
+on our corporate dataset using Pandas.
+Step 3: the manager hands the verified facts and math to the Content Writer, who compiles
+nearly a thousand words of structured analysis.
+
+And in a fraction of a second, the ReportLab compiler generates the typeset PDF file!
+
+Now let's run our automated tests with pytest dash v.
+Look at that: 14 out of 14 automated tests pass with 100% success!
+We test the exact mathematical computations of our Pandas parser, we test that ReportLab
+generates valid PDF headers without styling crashes, and we test our scraping and CLI tools."
+
+
+[07:15 - 08:30] SCENE 8: LIVE WEB DASHBOARD ON LOCALHOST 3000
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Web browser opens http://localhost:3000.
+The user types a custom query, clicks 'Run Multi-Agent Research'.
+The 5-step animated progress bar activates.
+The camera clicks between the four tabs:
+1. Executive Report
+2. Pandas Financial Matrix
+3. PDF Document Preview (with embedded PDF viewer)
+4. Execution Benchmarks (with routing table and JSON preview)
+
+[SPEAKER / VOICEOVER]:
+"If you don't want to use the command line, Marketverse comes with a complete, modern
+interactive web dashboard hosted locally on port 3000!
+
+The backend is powered by Starlette and Uvicorn, making it ultra-lightweight and lightning fast.
+
+Look at the top of the dashboard: you can see our live agent roster with real-time status badges.
+In the center, you have an interactive search panel where you can type any query or click
+popular topics like 'Hyperscaler Cloud & AI Capex' or 'Semiconductor & Foundry Outlook'.
+
+Above the tabs, five live KPI cards calculate aggregate revenue, growth rates, operating
+margins, median P/E ratios, and total market capitalization across our tracked peer companies.
+
+And below, you have four interactive tabs:
+- Tab 1 lets you read the full executive report right in your browser.
+- Tab 2 gives you the interactive Pandas financial matrix and corporate metrics tables.
+- Tab 3 embeds the compiled ReportLab PDF report directly on the screen with a one-click
+  download button.
+- And Tab 4 lets you inspect the real-time execution benchmarks and raw JSON telemetry!"
+
+
+[08:30 - 09:30] SCENE 9: THE 37-PAGE DOCUMENTATION MASTERPIECE & GITHUB
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+PDF viewer opens `Marketverse_Documentation.pdf`.
+Quick scroll through the 37 pages, highlighting that every single page is a distinct
+topic with exactly 7 structured paragraphs.
+Transitions to GitHub browser tab showing https://github.com/sayan-kundu000/Marketverse.
+
+[SPEAKER / VOICEOVER]:
+"Documentation is just as important as code.
+
+Included in the repository is a massive 37-page technical guide called
+Marketverse_Documentation dot pdf.
+
+Here is the incredible part: it covers exactly 37 distinct topics on exactly 37 pages.
+And every single page contains exactly seven clear, plain-language paragraphs—totaling
+259 paragraphs explaining everything from the math under the hood to real-world use cases
+for hedge funds, venture capitalists, and corporate strategy teams!
+
+And best of all, the entire project is open-source and live right now on GitHub!
+
+You can visit github dot com slash sayan dash kundu zero zero zero slash Marketverse.
+It contains the full source code, the sample outputs, the complete test suite, and
+detailed setup instructions."
+
+
+[09:30 - 10:15] SCENE 10: CONCLUSION & WRAP-UP
+--------------------------------------------------------------------------------
+[ON SCREEN]:
+Speaker camera view with Marketverse dashboard in the background.
+On-screen text:
+- GitHub: https://github.com/sayan-kundu000/Marketverse
+- Localhost Dashboard: http://localhost:3000
+- Core Stack: Python, CrewAI, Pandas, ReportLab, Starlette
+
+[SPEAKER / VOICEOVER]:
+"Marketverse shows what is possible when you combine specialized autonomous agents,
+rigorous mathematical verification with Pandas, and programmatic document compilers.
+
+It turns hours of exhausting manual research into seconds of automated, verified,
+and beautifully designed intelligence.
+
+Check out the GitHub link in the description below, clone the repo, give it a star,
+and start running your own multi-agent market research today.
+
+Thank you so much for watching, and see you next time!"
+
+
+================================================================================
+END OF SCRIPT
+================================================================================
