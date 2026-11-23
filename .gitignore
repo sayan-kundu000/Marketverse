@@ -57,3 +57,4 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+*video_script*
