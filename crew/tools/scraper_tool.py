@@ -206,3 +206,4 @@ def scrape_webpage(url: str) -> str:
         Cleaned text content of the target web page.
     """
     return scrape_url_content(url)
+

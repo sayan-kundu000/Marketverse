@@ -31,3 +31,4 @@ DATA_DIR = BASE_DIR / "data"
 OUTPUT_DIR = BASE_DIR / "output"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+

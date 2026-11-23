@@ -25,3 +25,4 @@ __all__ = [
     "get_raw_table_for_report",
     "get_summary_table_for_report",
 ]
+

@@ -38,3 +38,4 @@ def test_cli_defaults(monkeypatch):
     assert args.csv == "data/sample_financials.csv"
     assert args.output_dir == "output"
     assert args.pdf_name == "market_report.pdf"
+

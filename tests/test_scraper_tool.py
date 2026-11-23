@@ -46,3 +46,4 @@ def test_search_and_scrape_market_data_tool():
     assert isinstance(result, str)
     assert len(result) > 200
     assert "Tech Sector Q3 Analysis" in result
+

@@ -71,3 +71,4 @@ def test_missing_csv_fallback():
     result = calculate_financial_metrics.run(csv_path="non_existent_file.csv")
     assert "### Financial Summary Statistics (Pandas Matrix Analysis)" in result
     assert "sample_financials.csv" in result
+

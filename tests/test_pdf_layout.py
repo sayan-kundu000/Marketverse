@@ -59,3 +59,4 @@ def test_empty_content_pdf_resilience(tmp_path: Path):
     )
     assert os.path.exists(result_path)
     assert os.path.getsize(result_path) > 500
+

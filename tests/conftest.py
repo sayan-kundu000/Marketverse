@@ -56,3 +56,4 @@ Multiples reflect healthy free cash flow conversion.
 ## 5. Risk Factors & Strategic Outlook
 Grid interconnect delays pose medium-term challenges.
 """
+

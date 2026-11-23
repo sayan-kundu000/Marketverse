@@ -71,3 +71,4 @@ def test_marketverse_crew_kickoff(tmp_path: Path, mock_csv_file: Path):
     assert "benchmarks" in result
     assert len(result["benchmarks"]["routing_history"]) == 3
     assert result["benchmarks"]["status"] == "SUCCESS"
+
