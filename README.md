@@ -1,6 +1,6 @@
 # Marketverse: Multi-Agent Market Research & Report Generator with CrewAI
 
-- **Repository**: `https://github.com/marketverse/marketverse-crewai`
+- **Repository**: `https://github.com/sayan-kundu000/Marketverse`
 - **Assessment Level**: Intermediate (2–5 Years Experience)
 - **Core Stack**: Python 3.11+, CrewAI, Pandas, ReportLab, Pytest, APIs (Tavily, SerperDev, OpenAI)
 - **Status**: Production-Ready / Institutional Grade
@@ -98,8 +98,8 @@ flowchart TD
 ### 4.2 Installation
 ```bash
 # 1. Clone repository
-git clone https://github.com/marketverse/marketverse-crewai.git
-cd marketverse-crewai
+git clone https://github.com/sayan-kundu000/Marketverse.git
+cd Marketverse
 
 # 2. Create virtual environment
 python -m venv .venv
